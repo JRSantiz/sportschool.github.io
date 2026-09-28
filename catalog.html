@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог направлений спортивной школы «Олимп»: футбол, баскетбол, волейбол, плавание, лёгкая атлетика, гимнастика, бокс, карате. Калькулятор стоимости обучения.">
+  <title>Направления и калькулятор стоимости — Спортивная школа «Олимп»</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Перейти к основному содержанию</a>
+
+  <!-- ===================== ШАПКА САЙТА ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images\лого.png" alt="Логотип спортивной школы «Олимп»" width="48" height="48">
+        <span class="brand-text">
+          <strong>Спортивная школа «Олимп»</strong>
+          <span>Секции для детей и подростков</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
+
+      <nav class="main-nav" aria-label="Основное меню">
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Направления</a></li>
+          <li><a href="catalog.html#calculator">Калькулятор</a></li>
+          <li><a href="cart.html">Заявка <span class="badge-counter">0</span></a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch" role="group" aria-label="Выбор темы оформления">
+        <span class="theme-switch-label">Тема</span>
+        <button class="theme-btn theme-light active" type="button" data-theme-value="light"
+                title="Светлая тема" aria-label="Светлая тема" aria-pressed="true"></button>
+        <button class="theme-btn theme-dark" type="button" data-theme-value="dark"
+                title="Тёмная тема" aria-label="Тёмная тема" aria-pressed="false"></button>
+        <button class="theme-btn theme-blue" type="button" data-theme-value="blue"
+                title="Голубая тема" aria-label="Голубая тема" aria-pressed="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== ЗАГОЛОВОК СТРАНИЦЫ ===================== -->
+  <div class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="index.html">Главная</a> / Направления</p>
+      <h1>Каталог направлений</h1>
+      <p>Восемь отделений спортивной школы. Стоимость абонемента указана за один месяц
+         занятий. Для точного расчёта воспользуйтесь калькулятором.</p>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ===================== КАТАЛОГ + КАЛЬКУЛЯТОР ===================== -->
+    <section class="section">
+      <div class="container catalog-layout">
+        <div>
+          <h2>Список направлений</h2>
+          <p class="section-lead" style="text-align:left;margin-bottom:28px">
+             Нажмите «В заявку», чтобы добавить направление в заявку на зачисление.
+             Количество месяцев можно изменить на странице «Заявка».</p>
+
+          <div class="product-list" id="product-list">
+            <!-- Карточки направлений формируются скриптом из массива catalog -->
+          </div>
+        </div>
+
+        <!-- Калькулятор стоимости обучения -->
+        <aside class="calculator" id="calculator">
+          <h2>Калькулятор стоимости</h2>
+          <p class="hint">Выберите направление, срок и скидку — программа посчитает сумму.</p>
+
+          <form id="calc-price-form" novalidate>
+            <div class="field">
+              <label for="calc-program">Направление</label>
+              <select id="calc-program" name="program">
+                <!-- Список формируется скриптом из массива catalog -->
+              </select>
+            </div>
+
+            <div class="field" style="margin-top:14px">
+              <label for="calc-months">Количество месяцев</label>
+              <input type="range" id="calc-months-range" min="1" max="24" step="1" value="3"
+                     aria-label="Срок обучения в месяцах">
+              <input type="number" id="calc-months" name="months" min="1" max="24" value="3" required>
+            </div>
+
+            <div class="field" style="margin-top:14px">
+              <label for="calc-discount">Скидка, %</label>
+              <input type="number" id="calc-discount" name="discount" min="0" max="100" value="0" required>
+            </div>
+
+            <div class="field" style="margin-top:14px">
+              <label for="calc-action">Что рассчитать</label>
+              <select id="calc-action" name="action">
+                <option value="total">Полную стоимость за срок</option>
+                <option value="total-discount" selected>Стоимость со скидкой</option>
+                <option value="per-month">Средняя цена одного месяца</option>
+                <option value="lessons">Стоимость всех занятий (4 раза в месяц)</option>
+                <option value="per-lesson">Цена одного занятия</option>
+              </select>
+            </div>
+
+            <button class="btn btn-block" type="submit" style="margin-top:20px">Рассчитать</button>
+          </form>
+
+          <div class="calc-result">
+            <div class="calc-result-value" id="calc-price-result">—</div>
+            <div class="calc-result-label" id="calc-price-label">Здесь появится результат расчёта</div>
+          </div>
+
+          <p class="calc-error" id="calc-price-error" role="alert"></p>
+
+          <div class="history-box">
+            <h3>История расчётов</h3>
+            <ul class="history-list" id="calc-price-history">
+              <li class="history-empty">История пока пуста</li>
+            </ul>
+          </div>
+
+          <button class="btn btn-outline btn-block" type="button" id="calc-price-more" style="margin-top:16px">
+            Рассчитать ещё
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== АРИФМЕТИЧЕСКИЙ КАЛЬКУЛЯТОР ===================== -->
+    <section class="section section-alt" id="basic-calculator">
+      <div class="container">
+        <h2 class="section-title">Арифметический калькулятор</h2>
+        <p class="section-lead">Демонстрация операторов JavaScript: условный оператор
+           <code>if-else</code> для проверки ввода, оператор <code>switch</code> для выбора
+           действия, цикл <code>for</code> для вывода истории и цикл <code>while</code>
+           для повторных вычислений.</p>
+
+        <div class="media-grid">
+          <div class="calculator">
+            <h3>Поля ввода</h3>
+
+            <form id="calc-form" novalidate>
+              <div class="calc-row">
+                <div class="field">
+                  <label for="num1">Первое число</label>
+                  <input type="text" id="num1" placeholder="например, 12" value="">
+                </div>
+                <div class="field">
+                  <label for="operation">Операция</label>
+                  <select id="operation">
+                    <option value="+">Сложение (+)</option>
+                    <option value="-">Вычитание (−)</option>
+                    <option value="*">Умножение (×)</option>
+                    <option value="/">Деление (÷)</option>
+                    <option value="mod">Остаток от деления (%)</option>
+                    <option value="pow">Возведение в степень (^)</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="num2">Второе число</label>
+                  <input type="text" id="num2" placeholder="например, 4" value="">
+                </div>
+              </div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap">
+                <button class="btn" type="submit">Вычислить</button>
+                <button class="btn btn-outline" type="button" id="calc-again">Вычислить ещё</button>
+                <button class="btn btn-outline" type="button" id="calc-clear">Очистить</button>
+              </div>
+            </form>
+
+            <p class="calc-error" id="calc-error" role="alert"></p>
+
+            <div class="calc-result">
+              <div class="calc-result-value" id="calcResult">0</div>
+              <div class="calc-result-label" id="calcExpression">Введите два числа и выберите операцию</div>
+            </div>
+          </div>
+
+          <div class="history-box" style="margin-top:0">
+            <h3>История вычислений</h3>
+            <ul class="history-list" id="historyList">
+              <li class="history-empty">История пока пуста</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== БЛОК О КАЖДОМ НАПРАВЛЕНИИ ===================== -->
+    <section class="section" id="about-directions">
+      <div class="container">
+        <h2 class="section-title">Что даёт каждое направление</h2>
+        <p class="section-lead">Коротко о том, чему учатся спортсмены в каждом отделении.</p>
+
+        <div class="feature-grid">
+          <article class="feature" id="football">
+            <span class="feature-num">1</span>
+            <h3>Футбол</h3>
+            <p>Удар по мячу в стопу, удар головой, приём и пас, дриблинг, выносливость.
+               Тактические занятия с игроками 2011–2012 годов рождения и участие в городском
+               турнире «Кубок «Олимпа».</p>
+          </article>
+          <article class="feature" id="basketball">
+            <span class="feature-num">2</span>
+            <h3>Баскетбол</h3>
+            <p>Ведение мяча, бросок двумя руками с разных дистанций, ловля, передача,
+               расстановка на площадке. Подготовка к школьным соревнованиям и спаррингам
+               с командами района.</p>
+          </article>
+          <article class="feature" id="swimming">
+            <span class="feature-num">3</span>
+            <h3>Плавание</h3>
+            <p>Освоение техники: кроль, брасс, на спине, дыхание и работа ног. Занятия
+               в бассейне 25 метров с раздельными дорожками по уровню подготовки.</p>
+          </article>
+          <article class="feature" id="gymnastics">
+            <span class="feature-num">4</span>
+            <h3>Художественная гимнастика</h3>
+            <p>Координация, гибкость, равновесие, ритмика и формирование осанки.
+               Показательные выступления на городских и всероссийских турнирах.</p>
+          </article>
+          <article class="feature" id="boxing">
+            <span class="feature-num">5</span>
+            <h3>Бокс</h3>
+            <p>Стойка, джеб и кросс, защита, работа в парте, серии на мешке. Разрешённые
+               спарринги под контролем тренера и страховочное оборудование зала.</p>
+          </article>
+          <article class="feature" id="karate">
+            <span class="feature-num">6</span>
+            <h3>Карате</h3>
+            <p>Ката, кумите, базовая техника самообороны. Классические пояса
+               с аттестацией комиссией школы раз в год.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ПРИЗЫВ К ДЕЙСТВИЮ ===================== -->
+    <section class="cta-strip">
+      <div class="container">
+        <h2>Сомневаетесь в выборе направления?</h2>
+        <p>Придите на бесплатное пробное занятие — тренер покажет разницу между отделениями.</p>
+        <a class="btn btn-accent" href="contacts.html#booking">Записаться на пробное занятие</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Спортивная школа «Олимп»</h3>
+          <p>Государственное бюджетное учреждение дополнительного образования
+             спортивной направленности. Лицензия № 041280 от 14.03.2019.</p>
+          <div class="social-row">
+            <a class="social-btn" href="contacts.html" aria-label="ВКонтакте">VK</a>
+            <a class="social-btn" href="contacts.html" aria-label="Телеграм">TG</a>
+            <a class="social-btn" href="contacts.html" aria-label="Ютуб">YT</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Разделы</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Направления</a></li>
+            <li><a href="catalog.html#calculator">Калькулятор стоимости</a></li>
+            <li><a href="cart.html">Заявка на зачисление</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Направления</h3>
+          <ul>
+            <li><a href="catalog.html#football">Футбол</a></li>
+            <li><a href="catalog.html#swimming">Плавание</a></li>
+            <li><a href="catalog.html#gymnastics">Гимнастика</a></li>
+            <li><a href="catalog.html#boxing">Бокс</a></li>
+            <li><a href="catalog.html#karate">Карате</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Контакты</h3>
+          <ul>
+            <li>ул. Спортивная, 14</li>
+            <li><a href="tel:+79001234567">+7 (900) 123-45-67</a></li>
+            <li><a href="mailto:info@olimp-sport.ru">info@olimp-sport.ru</a></li>
+            <li>Пн–Сб: 08:00–20:00, Вс: выходной</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Спортивная школа «Олимп». Учебный проект по дисциплине «Веб-разработка».</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Наверх страницы">&#9650;</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

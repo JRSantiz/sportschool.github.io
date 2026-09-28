@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Спортивная школа «Олимп»: восемь направлений, штатные тренеры, набор в группы. Стоимость занятий, расписание, запись на пробное занятие.">
+  <meta name="keywords" content="спортивная школа, секции, футбол, баскетбол, плавание, гимнастика, бокс, карате, абонемент, тренировки">
+  <title>Спортивная школа «Олимп» — секции для детей и подростков</title>
+  <link rel="icon" type="image/svg+xml" href="images\лого.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Перейти к основному содержанию</a>
+
+  <!-- ===================== ШАПКА САЙТА ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images\лого.png" alt="Логотип спортивной школы «Олимп»" width="48" height="48">
+        <span class="brand-text">
+          <strong>Спортивная школа «Олимп»</strong>
+          <span>Секции для детей и подростков</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
+
+      <nav class="main-nav" aria-label="Основное меню">
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Направления</a></li>
+          <li><a href="catalog.html#calculator">Калькулятор</a></li>
+          <li><a href="cart.html">Заявка <span class="badge-counter">0</span></a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch" role="group" aria-label="Выбор темы оформления">
+        <span class="theme-switch-label">Тема</span>
+        <button class="theme-btn theme-light active" type="button" data-theme-value="light"
+                title="Светлая тема" aria-label="Светлая тема" aria-pressed="true"></button>
+        <button class="theme-btn theme-dark" type="button" data-theme-value="dark"
+                title="Тёмная тема" aria-label="Тёмная тема" aria-pressed="false"></button>
+        <button class="theme-btn theme-blue" type="button" data-theme-value="blue"
+                title="Голубая тема" aria-label="Голубая тема" aria-pressed="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== ГЛАВНЫЙ БЛОК (HERO) ===================== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="hero-badge">Набор на 2026/27 учебный год</span>
+        <h1>Восемь направлений спорта в одном здании</h1>
+        <p>Спортивная школа «Олимп» работает с 2009 года. Занятия ведут штатные тренеры
+           с высшим педагогическим образованием, каждая группа — не более 14 человек.</p>
+        <div class="hero-actions">
+          <a class="btn" href="catalog.html">Выбрать направление</a>
+          <a class="btn btn-accent" href="contacts.html#booking">Записаться на пробное</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images\общее.png" alt="Юные спортсмены на тренировке в спортивной школе" width="480" height="331">
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!-- ===================== НАПРАВЛЕНИЯ ===================== -->
+    <section class="section" id="directions">
+      <div class="container">
+        <h2 class="section-title">Направления подготовки</h2>
+        <p class="section-lead">Восемь отделений, единая методика и единые требования к
+           технике безопасности. Выберите направление и добавьте его в заявку.</p>
+
+        <div class="sport-grid" id="sport-grid">
+          <!-- Карточки направлений формируются скриптом из массива catalog -->
+        </div>
+
+        <p style="text-align:center;margin-top:32px">
+          <a class="btn btn-outline" href="catalog.html">Подробнее обо всех направлениях</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== НАПРАВЛЕНИЯ + БОКОВАЯ ПАНЕЛЬ ===================== -->
+    <section class="section section-alt">
+      <div class="container layout-with-aside">
+        <div>
+          <h2>Почему выбирают «Олимп»</h2>
+
+          <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-num">1</span>
+              <h3>Группы до 14 человек</h3>
+              <p>Тренер видит каждого ученика, нагрузка подбирается индивидуально по возрасту и уровню подготовки.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-num">2</span>
+              <h3>Государственная спортивная школа</h3>
+              <p>Лицензия на дополнительное образование, занятия входят в реестр спортивных школ региона.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-num">3</span>
+              <h3>Платные и бесплатные места</h3>
+              <p>Есть места на безвозмездной основе для детей из многодетных и малоимущих семей.</p>
+            </article>
+            <article class="feature">
+              <span class="feature-num">4</span>
+              <h3>Спортивный результат</h3>
+              <p>64 ученика школы выполнили нормы ГТО и 12 стали победителями всероссийских турниров за три года.</p>
+            </article>
+          </div>
+
+          <h2 style="margin-top:52px">Расписание занятий</h2>
+          <p class="section-lead" style="margin-bottom:24px">Расписание на неделю. Точное время
+             занятий вашей группы тренер сообщает при записи.</p>
+
+          <div class="table-wrap">
+            <table>
+              <caption>Учебное расписание, понедельник — суббота</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Направление</th>
+                  <th scope="col">Возраст</th>
+                  <th scope="col">Понедельник</th>
+                  <th scope="col">Среда</th>
+                  <th scope="col">Пятница</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Футбол</th><td>6–14 лет</td><td>17:00</td><td>17:00</td><td>17:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Баскетбол</th><td>8–15 лет</td><td>18:45</td><td>18:45</td><td>—</td>
+                </tr>
+                <tr>
+                  <th scope="row">Волейбол</th><td>9–16 лет</td><td>—</td><td>16:30</td><td>16:30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Плавание</th><td>6–16 лет</td><td>15:30</td><td>15:30</td><td>15:30</td>
+                </tr>
+                <tr>
+                  <th scope="row">Лёгкая атлетика</th><td>8–17 лет</td><td>14:00</td><td>14:00</td><td>14:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Художественная гимнастика</th><td>5–12 лет</td><td>16:00</td><td>16:00</td><td>16:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Бокс</th><td>10–17 лет</td><td>19:00</td><td>19:00</td><td>19:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Карате</th><td>7–15 лет</td><td>—</td><td>18:00</td><td>18:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Боковая панель <aside> с акциями -->
+        <aside class="sidebar">
+          <h2>Акции и скидки</h2>
+          <ul class="promo-list" id="promo-list">
+            <!-- Промо-предложения формируются скриптом -->
+          </ul>
+          <p><a class="btn btn-block" href="contacts.html#booking">Записаться на пробное</a></p>
+
+          <h3 style="margin-top:26px;font-size:1.05rem">Рекламный баннер</h3>
+          <div class="banner-block">
+            <img src="images\рекламный баннер.png" class="banner-300x250"
+                 alt="Рекламный баннер: скидка 20% на первый месяц занятий" width="300" height="250">
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== ТРЕНЕРЫ ===================== -->
+    <section class="section" id="coaches">
+      <div class="container">
+        <h2 class="section-title">Тренеры</h2>
+        <p class="section-lead">Шесть штатных тренеров, средний стаж работы со спортсменами — 10 лет.</p>
+        <div class="coach-grid" id="coach-grid">
+          <!-- Карточки тренеров формируются скриптом из массива coaches -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== МУЛЬТИМЕДИА ===================== -->
+    <section class="section section-alt" id="media">
+      <div class="container">
+        <h2 class="section-title">Мультимедийные элементы сайта</h2>
+        
+        <div class="media-grid">
+          <article class="media-box">
+            <h3>Видео: обзор тренировки</h3>
+            <video id="school-video" controls preload="metadata" width="480" height="270"
+                   >
+              <source src="media\output_720x1280.mp4" type="video/mp4">
+              <p>Ваш браузер не поддерживает элемент &lt;video&gt;.</p>
+            </video>
+                      </article>
+
+          <article class="media-box">
+            <h3>Аудио: сигналы тренера</h3>
+            <div class="audio-placeholder">
+              <button class="play-btn" type="button" id="sfx-play" aria-label="Воспроизвести свисток">&#9654;</button>
+              <span>Свисток судьи — короткий звуковой сигнал</span>
+            </div>
+            <audio id="sfx" controls preload="none">
+              <source src="media\svistok--nachalo-matcha.mp3" type="audio/wav">
+              <p>Ваш браузер не поддерживает элемент &lt;audio&gt;.</p>
+            </audio>
+            <p style="margin-top:14px">
+              <button class="btn btn-small btn-outline" type="button" id="start-signal">Стартовый сигнал</button>
+            </p>
+            <audio id="sfx-start" preload="none">
+              <source src="media\racestart-1.mp3" type="audio/wav">
+            </audio>
+                      </article>
+
+          <article class="media-box">
+            <h3>Анимация canvas: движение мячей</h3>
+            <canvas id="myCanvas" width="360" height="220" aria-label="Анимация: движущиеся мячи"></canvas>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== О ШКОЛЕ ===================== -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div>
+          <h2>О спортивной школе</h2>
+          <p>Спортивная школа «Олимп» основана в 2009 году. Это государственное бюджетное
+             учреждение дополнительного образования спортивной направленности. Школа
+             располагает тремя спортивными залами, бассейном на 25 метров, площадкой с
+             искусственным покрытием и диагностико-методическим кабинетом.</p>
+          <p>Занятия ведут 6 штатных тренеров и 2 педагога-организатора. За 2025/26 учебный год
+             школу окончили 412 спортсменов, 64 из них выполнили нормативы Всероссийского
+             физкультурно-спортивного комплекса «Готов к труду и обороне».</p>
+
+          <div class="stat-row">
+            <div class="stat"><b>16</b><span>лет школе</span></div>
+            <div class="stat"><b>8</b><span>направлений</span></div>
+            <div class="stat"><b>640</b><span>учеников</span></div>
+          </div>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Фильтр фотографий">
+          <button class="filter-btn active" type="button" data-filter="all">Все</button>
+          <button class="filter-btn" type="button" data-filter="indoor">Залы</button>
+          <button class="filter-btn" type="button" data-filter="water">Вода</button>
+          <button class="filter-btn" type="button" data-filter="outdoor">Площадка</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+          <img src="images/зал гимнастики.png" data-category="indoor"
+               alt="Спортивный зал школы">
+          <img src="images/бассейн 25м.png" data-category="water"
+               alt="Бассейн школы на 25 метров">
+          <img src="images/игровое поле.png" data-category="outdoor"
+               alt="Игровое поле с искусственным покрытием">
+          <img src="images/награды учеников.png" data-category="indoor"
+               alt="Награды учеников школы">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ПОЛОСА ПРИЗЫВА К ДЕЙСТВИЮ ===================== -->
+    <section class="cta-strip">
+      <div class="container">
+        <h2>Первое занятие бесплатно</h2>
+        <p>Приходите на пробное занятие, знакомьтесь с тренером и решайте без спешки.</p>
+        <a class="btn btn-accent" href="contacts.html#booking">Записаться на пробное занятие</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Спортивная школа «Олимп»</h3>
+          <p>Государственное бюджетное учреждение дополнительного образования
+             спортивной направленности. Лицензия № 041280 от 14.03.2019.</p>
+          <div class="social-row">
+            <a class="social-btn" href="contacts.html" aria-label="ВКонтакте">VK</a>
+            <a class="social-btn" href="contacts.html" aria-label="Телеграм">TG</a>
+            <a class="social-btn" href="contacts.html" aria-label="Ютуб">YT</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Разделы</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Направления</a></li>
+            <li><a href="catalog.html#calculator">Калькулятор стоимости</a></li>
+            <li><a href="cart.html">Заявка на зачисление</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Направления</h3>
+          <ul>
+            <li><a href="catalog.html#football">Футбол</a></li>
+            <li><a href="catalog.html#swimming">Плавание</a></li>
+            <li><a href="catalog.html#gymnastics">Гимнастика</a></li>
+            <li><a href="catalog.html#boxing">Бокс</a></li>
+            <li><a href="catalog.html#karate">Карате</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Контакты</h3>
+          <ul>
+            <li>ул. Спортивная, 14</li>
+            <li><a href="tel:+79001234567">+7 (900) 123-45-67</a></li>
+            <li><a href="mailto:info@olimp-sport.ru">info@olimp-sport.ru</a></li>
+            <li>Пн–Сб: 08:00–20:00, Вс: выходной</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Спортивная школа «Олимп». Учебный проект по дисциплине «Веб-разработка».</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Кнопка «Наверх» и всплывающее уведомление -->
+  <button class="to-top" type="button" aria-label="Наверх страницы">&#9650;</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

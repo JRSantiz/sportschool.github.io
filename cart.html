@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Заявка на зачисление в спортивную школу «Олимп»: выберите направления, укажите срок и оформите заявку онлайн.">
+  <title>Заявка на зачисление — Спортивная школа «Олимп»</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="visually-hidden" href="#main">Перейти к основному содержанию</a>
+
+  <!-- ===================== ШАПКА САЙТА ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="images\лого.png" alt="Логотип спортивной школы «Олимп»" width="48" height="48">
+        <span class="brand-text">
+          <strong>Спортивная школа «Олимп»</strong>
+          <span>Секции для детей и подростков</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">&#9776;</button>
+
+      <nav class="main-nav" aria-label="Основное меню">
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Направления</a></li>
+          <li><a href="catalog.html#calculator">Калькулятор</a></li>
+          <li><a href="cart.html">Заявка <span class="badge-counter">0</span></a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch" role="group" aria-label="Выбор темы оформления">
+        <span class="theme-switch-label">Тема</span>
+        <button class="theme-btn theme-light active" type="button" data-theme-value="light"
+                title="Светлая тема" aria-label="Светлая тема" aria-pressed="true"></button>
+        <button class="theme-btn theme-dark" type="button" data-theme-value="dark"
+                title="Тёмная тема" aria-label="Тёмная тема" aria-pressed="false"></button>
+        <button class="theme-btn theme-blue" type="button" data-theme-value="blue"
+                title="Голубая тема" aria-label="Голубая тема" aria-pressed="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== ЗАГОЛОВОК СТРАНИЦЫ ===================== -->
+  <div class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="index.html">Главная</a> / Заявка на зачисление</p>
+      <h1>Заявка на зачисление</h1>
+      <p>Проверьте выбранные направления и срок обучения. После отправки заявки
+         администратор школы свяжется с вами для подтверждения.</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container cart-layout">
+
+        <!-- Корзина заявки -->
+        <div>
+          <h2>Выбранные направления</h2>
+
+          <div class="cart-empty" id="cart-empty">
+            <h2>Заявка пока пуста</h2>
+            <p>Перейдите в каталог и добавьте нужные направления кнопкой «В заявку».</p>
+            <a class="btn" href="catalog.html">Перейти в каталог направлений</a>
+          </div>
+
+          <ul class="cart-list" id="cart-list" style="display:none">
+            <!-- Позиции заявки формируются скриптом -->
+          </ul>
+
+          <div id="checkout-result" class="form-message" role="status" aria-live="polite"></div>
+
+          <p style="margin-top:28px">
+            <a class="btn btn-outline" href="catalog.html">Добавить ещё направление</a>
+            <button class="btn btn-outline" type="button" id="clear-cart">Очистить заявку</button>
+          </p>
+        </div>
+
+        <!-- Итоги заявки -->
+        <aside class="summary">
+          <h2>Итоги</h2>
+
+          <div class="summary-row">
+            <span>Позиций в заявке:</span>
+            <strong id="summary-count">0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Всего месяцев:</span>
+            <strong id="summary-count-months">0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Стоимость:</span>
+            <strong id="summary-total">0 ₽</strong>
+          </div>
+          <div class="summary-row">
+            <span>Скидка 10% (от 3 000 ₽):</span>
+            <strong id="summary-discount">—</strong>
+          </div>
+          <div class="summary-row total">
+            <span>К оплате:</span>
+            <span id="summary-total-discount">0 ₽</span>
+          </div>
+
+          <div class="summary-actions">
+            <button class="btn btn-block btn-accent" type="button" id="checkout-btn" disabled>
+              Оформить заявку
+            </button>
+          </div>
+
+          <p class="hint" style="margin-top:18px" id="storage-note" data-note-kind="cart">
+            Данные заявки сохраняются в локальном хранилище браузера и не пропадают
+            после перезагрузки страницы.
+          </p>
+
+          <p style="margin-top:20px">
+            <button class="btn btn-outline btn-block" type="button" data-print>
+              Распечатать заявку
+            </button>
+          </p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ===================== КАК ПРОХОДИТ ЗАЧИСЛЕНИЕ ===================== -->
+    <section class="section section-alt" id="steps">
+      <div class="container">
+        <h2 class="section-title">Как проходит зачисление</h2>
+        <p class="section-lead">Четыре шага от заявки до первого занятия.</p>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-num">1</span>
+            <h3>Заявка на сайте</h3>
+            <p>Вы отправляете заявку, указывая направления и срок обучения. Форма проверяется
+               в браузере, обязательные поля отмечены.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">2</span>
+            <h3>Звонок администратора</h3>
+            <p>В течение рабочего дня администратор уточняет возраст спортсмена,
+               уровень подготовки и удобное время занятий.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">3</span>
+            <h3>Пробное занятие</h3>
+            <p>Бесплатное пробное занятие: тренер оценивает подготовку и подбирает группу.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">4</span>
+            <h3>Договор и абонемент</h3>
+            <p>Заключается договор, выдаётся абонемент и спортивная форма на первое занятие.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== ПОДВАЛ ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Спортивная школа «Олимп»</h3>
+          <p>Государственное бюджетное учреждение дополнительного образования
+             спортивной направленности. Лицензия № 041280 от 14.03.2019.</p>
+          <div class="social-row">
+            <a class="social-btn" href="contacts.html" aria-label="ВКонтакте">VK</a>
+            <a class="social-btn" href="contacts.html" aria-label="Телеграм">TG</a>
+            <a class="social-btn" href="contacts.html" aria-label="Ютуб">YT</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Разделы</h3>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="catalog.html">Направления</a></li>
+            <li><a href="catalog.html#calculator">Калькулятор стоимости</a></li>
+            <li><a href="cart.html">Заявка на зачисление</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Направления</h3>
+          <ul>
+            <li><a href="catalog.html#football">Футбол</a></li>
+            <li><a href="catalog.html#swimming">Плавание</a></li>
+            <li><a href="catalog.html#gymnastics">Гимнастика</a></li>
+            <li><a href="catalog.html#boxing">Бокс</a></li>
+            <li><a href="catalog.html#karate">Карате</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Контакты</h3>
+          <ul>
+            <li>ул. Спортивная, 14</li>
+            <li><a href="tel:+79001234567">+7 (900) 123-45-67</a></li>
+            <li><a href="mailto:info@olimp-sport.ru">info@olimp-sport.ru</a></li>
+            <li>Пн–Сб: 08:00–20:00, Вс: выходной</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Спортивная школа «Олимп». Учебный проект по дисциплине «Веб-разработка».</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Наверх страницы">&#9650;</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
